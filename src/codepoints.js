@@ -3,6 +3,8 @@ module.exports = {
 	android: 0xf17b,
 	apple: 0xf179,
 	"facebook-square": 0xf082,
+	"google-plus": 0xf0d5,
+	"google-plus-square": 0xf0d4,
 	"linkedin-sign": 0xf08c,
 	"question-circle": 0xf059,
 	"twitter-square": 0xf081,
