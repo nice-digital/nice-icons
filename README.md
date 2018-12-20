@@ -168,7 +168,7 @@ const something = (props) => {
 
 ```
 
-Note: these React files in the lib folder use ES6 features like arrow functions, spread operators and ES6 modules. This means you'll need to transiple these with babel (or similar) as part of your build.
+Note: these React files in the lib folder use ES6 features like arrow functions, spread operators and ES6 modules. This means you'll need to transpile these with babel (or similar) as part of your build. For example, by using the [include option](https://webpack.js.org/configuration/module/#condition) pointing to *node_modules/@nice-digital/icons* with babel-loader in webpack.
 
 #### Browser support
 
