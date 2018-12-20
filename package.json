@@ -41,7 +41,8 @@
   "homepage": "https://github.com/nhsevidence/nice-icons#readme",
   "files": [
     "dist",
-    "src"
+    "src",
+    "scss"
   ],
   "publishConfig": {
     "access": "public"
