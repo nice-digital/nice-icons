@@ -4,7 +4,8 @@
   "description": "Icons for use in NICE Digital Services",
   "main": "index.js",
   "scripts": {
-    "start": "npm run webfont",
+    "start": "npm run webfont && npm run svgr",
+    "svgr": "svgr --no-dimensions -d lib src --replace-attr-values #000=currentColor --svg-props className=icon --svg-props aria-hidden=true",
     "webfont": "grunt dist --color",
     "test": "echo \"No tests :)\" && exit 0",
     "readme": "doctoc ./README.md && babel-node ./scripts/readme-replacer.js",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@nice-digital/eslint-config": "^1.0.2",
+    "@svgr/cli": "^4.1.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-preset-env": "^1.7.0",
@@ -58,5 +60,8 @@
     "grunt-webfont": "^1.7.1",
     "load-grunt-config": "^0.19.2",
     "np": "^3.0.4"
+  },
+  "peerDependencies": {
+    "react": ">=15"
   }
 }

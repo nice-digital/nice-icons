@@ -16,25 +16,34 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Intro](#intro)
-  - [Guidance](#guidance)
-- [Usage](#usage)
-  - [Installation](#installation)
-  - [Build process](#build-process)
-  - [Serving font files](#serving-font-files)
-    - [Express](#express)
-    - [Grunt copy](#grunt-copy)
-    - [Visual Studio Copy Task](#visual-studio-copy-task)
-  - [Markup](#markup)
-  - [SASS](#sass)
-- [Development](#development)
-  - [Dependencies](#dependencies)
-  - [Commands](#commands)
-  - [Updating the readme](#updating-the-readme)
-  - [Releasing](#releasing)
-- [Creating icons](#creating-icons)
-- [Custom application icons](#custom-application-icons)
-- [Icons](#icons)
+- [NICE Icons](#nice-icons)
+	- [Intro](#intro)
+		- [Guidance](#guidance)
+	- [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
+		- [What's new in v2.x?](#whats-new-in-v2x)
+	- [Installation](#installation)
+		- [Include sass](#include-sass)
+			- [Environment variable](#environment-variable)
+			- [includePaths](#includepaths)
+			- [Tilde import](#tilde-import)
+	- [Usage](#usage)
+		- [React](#react)
+			- [Browser support](#browser-support)
+		- [Webfont](#webfont)
+			- [Serving font files](#serving-font-files)
+				- [Express](#express)
+				- [Grunt copy](#grunt-copy)
+				- [Visual Studio Copy Task](#visual-studio-copy-task)
+			- [Markup](#markup)
+			- [SASS](#sass)
+	- [Development](#development)
+		- [Dependencies](#dependencies)
+		- [Commands](#commands)
+		- [Updating the readme](#updating-the-readme)
+		- [Releasing](#releasing)
+	- [Creating icons](#creating-icons)
+	- [Custom application icons](#custom-application-icons)
+	- [Icons](#icons)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -43,15 +52,6 @@
 ## Intro
 
 Nice-icons is a replacement for [NICE.Glyphs](http://nhsevidence.github.io/NICE.Bootstrap/Guide.Glyphs.html#charset). It is independent of Bootstrap and the Design System so can be used on its own.
-
-We use a custom icon web font because:
-
-- there's no JavaScript required
-- icon color, size, shadow etc can be styled with CSS.
-- any custom icons can be used
-- icon fonts support IE8+
-- vector icons are infinitely scalable
-- vector icons look perfect on retina displays.
 
 ### Guidance
 
@@ -62,29 +62,55 @@ Avoid unnecessary decoration - only use icons if there’s a real user need:
 - icons should be easily recognizable
 - keep icon designs simple and schematic.
 
-## Usage
+## Upgrading from 1.x to 2.x
 
-See the [examples](examples) folder for usage examples.
+Breaking changes:
 
-The easiest and recommended way to use NICE Icons is through the [NICE Design System](https://nhsevidence.github.io/nice-design-system/foundations/iconography/) rather than directly.
+- SASS file path - now /scss rather than dist/
+- $nice-icons-base-path is now $nice-icons-base-path
+- mixin `icon-base` is now `nice-icons-base`
+- There are no nested folders within src
+- Dropped `speak: none` CSS property
+- Dropped support for usage via Bower
 
-However, follow the steps below if you need to use NICE Icons manually:
+### What's new in v2.x?
 
-### Installation
+As well as the breaking changes listed above, we have the following features:
+
+- React
+
+## Installation
 
 Install [NICE Icons from npm](https://www.npmjs.com/package/@nice-digital/icons):
 
 `npm i @nice-digital/icons --save`
 
-> Note: if you prefer to use the [package from Yarn](https://yarnpkg.com/en/package/@nice-digital/icons) rather than yarn, run `yarn add @nice-digital/icons` instead.
+The *node_modules/@nice-digital/icons* package folder will include:
 
-Source SVG files and dist files will then be available in *./node_modules/@nice-digital/icons*.
+- source SVG files in the *src* folder
+- React components in the *lib* folder
+- generated icon font (EOT, SVG, TTF, WOFF and WOFF 2) in the *dist* folder
+- JSON file in the *dist* folder with font metadata information.
 
-> Note: NICE Icons is available on Bower as *nice-icons* but is not recommended.
+### Include sass
 
-### Build process
+Import NICE Icons in SASS with:
 
-Include the path *./node_modules/@nice-digital/icons/dist/_nice-icons.scss* in your SASS.
+```scss
+@import 'nice-icons';
+```
+
+But before you do this, you'll need to include the path *./node_modules/@nice-digital/icons/scss* in your SASS build. There are a few ways to do this:
+
+#### Environment variable
+
+Use the [SASS_PATH environment variable](https://github.com/sass/node-sass/pull/1680) with SASS. For example, in Create React App 2 use the following inside a *.env* file:
+
+```
+SASS_PATH=node_modules/@nice-digital/icons/scss
+```
+
+#### includePaths
 
 Use the [includePaths option from node-sass](https://github.com/sass/node-sass#includepaths) to include the path. Or with [grunt-sass](https://github.com/sindresorhus/grunt-sass#options):
 
@@ -97,24 +123,74 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		sass: {
 			app: {
-				includePaths: ["node_modules/@nice-digital/icons/dist"]
+				includePaths: ["node_modules/@nice-digital/icons/scss"]
 			}
 		}
 	});
 };
 ```
 
-Then in your SASS you can:
+#### Tilde import
+
+Replace the import above with a tilde path if you're using [sass-loader via webpack](https://github.com/webpack-contrib/sass-loader#imports) or [node-sass-tilde-importer](https://www.npmjs.com/package/node-sass-tilde-importer) with node-sass:
 
 ```scss
-@import "nice-icons";
+@import '~@nice-digital/icons/scss/nice-icons';
 ```
 
-### Serving font files
+## Usage
+
+We've created various [usage examples](examples) to help with getting started.
+
+There are 2 main ways to use NICE Icons in your project:
+
+### React
+
+There are React component versions of each icon within the *lib* folder. This allows you to easily include inline SVGs when rendering via React. Each icon file is named with PascalCase, for example *src/email-closed.svg* is available in React as *lib/EmailClosed.js*.
+
+To use, first import the SASS file into your project [as above](#installation) and configure NICE Icons to use SVGs:
+
+```scss
+$nice-icons-use-svgs: true;
+@import 'nice-icons';
+```
+
+Then import and use React components from the lib folder, for example:
+
+```js
+import Search from "@nice-digital/icons/lib/Search";
+
+const something = (props) => {
+	return <div>
+		<Search />
+	</div>;
+};
+
+```
+
+Note: these React files in the lib folder use ES6 features like arrow functions, spread operators and ES6 modules. This means you'll need to transiple these with babel (or similar) as part of your build.
+
+#### Browser support
+
+This method is subject to the same browser support as inline SVGs.
+
+### Webfont
+
+We provide a custom icon web font because:
+
+- it's easy to render custom icons with content managed markup
+- there's no JavaScript required
+- icon color, size, shadow etc can be styled with CSS
+- any custom icons can be used
+- icon fonts support IE8+
+- vector icons are infinitely scalable
+- vector icons look perfect on retina displays.
+
+#### Serving font files
 
 > Note: [Add the corrrect MIME type to your web.config](http://stackoverflow.com/a/7374640/486434) if you get a 404 error for .woff files in IIS.
 
-#### Express
+##### Express
 
 Use `express.static` to serve font files in [Express](https://expressjs.com/) directly from the *dist* folder:
 
@@ -129,7 +205,7 @@ app.use("/fonts", express.static(path.join(__dirname, "./node_modules/@nice-digi
 
 See the [simple-express](examples/simple-express) folder for a complete example of this.
 
-#### Grunt copy
+##### Grunt copy
 
 Setup a [copy task](https://github.com/gruntjs/grunt-contrib-copy) with [Grunt](https://gruntjs.com/) to copy the font files into your application:
 
@@ -154,11 +230,11 @@ module.exports = function(grunt) {
 };
 ```
 
-#### Visual Studio Copy Task
+##### Visual Studio Copy Task
 
 Use a [Visual Studio Copy Task](https://docs.microsoft.com/en-gb/visualstudio/msbuild/copy-task) to copy the font files into your application. Or use a [post build event](https://stackoverflow.com/a/3719097/486434).
 
-### Markup
+#### Markup
 
 Use custom icons in markup (rather than [SASS](#sass)) wherever possible:
 
@@ -172,15 +248,15 @@ Basics of usage are: `<span class="icon icon--[NAME]" aria-hidden="true"></span>
 <span class="icon icon--logo" aria-hidden="true"></span>
 ```
 
-### SASS
+#### SASS
 
 There are SASS constructs for advanced usage:
 
-- `@mixin nice-icon-base` for the base styles required for an icon
+- `@mixin nice-icons-base` for the base styles required for an icon
 - `@mixin nice-icon($icon)`n e.g. `@include nice-icon(logo);`
 - `@function nice-icon($icon)` e.g. `content: nice-icon(logo);` - gets the unicode codepoint value
 - `$nice-icons` - a map of icon name to unicode codepoint. Override this when generating a custom webfont in your application
-- `$nice-font-base-path` - the URL from which to download the font files. Override this in your application if you serve font files from a different path.
+- `$nice-icons-base-path` - the URL from which to download the font files. Override this in your application if you serve font files from a different path.
 
 ```scss
 .logo {
@@ -190,7 +266,7 @@ There are SASS constructs for advanced usage:
 
 	// or
 	&__btn {
-		@include nice-icon-base;
+		@include nice-icons-base;
 
 		&:before {
 			content: nice-icon(logo);
@@ -225,14 +301,15 @@ We use Grunt as a task runner hence the dependency on Node. If you haven't used 
 
 Run `npm start` from the command line for development. This uses [grunt-webfont](.grunt-tasks/webfont.js) under the hood to:
 
-- build the [source icons](src) into a web font with formats:
+- build the [source icons](src) into a web font in the [dist folder](dist) with formats:
 	- [EOT](dist/nice-icons.eot)
 	- [SVG](dist/nice-icons.svg)
 	- [TTF](dist/nice-icons.ttf)
 	- [WOFF](dist/nice-icons.woff)
 	- [WOFF2](dist/nice-icons.woff2)
-- build a [SASS file](dist/_nice-icons.scss)
 - build a [JSON file](dist/nice-icons.json) of metadata for the font
+- build a [SASS file](scss/_nice-icons.scss)
+- build [React components](lib) into the lib folder
 - create a [demo html](dist/demo.html) - use this for testing new icons.
 
 ### Updating the readme
@@ -259,16 +336,18 @@ This uses [np](https://www.npmjs.com/package/np) under the hood.
 
 ## Creating icons
 
+We provide a [Figma file](NICE Icons.fig) with the source of all icons. Upload this into Figma and add a new Page for each icon.
+
 Follow the following steps to create a new SVG:
 
 1. 512px height SVG
-2. Single compund path
+2. Single compound path
 3. Viewbox from 0,0
 
 Then, if you're creating a core icon:
 
 1. Save into the [src](src) folder
-2. Re-run `npm start` to rebuild the icon font
+2. Re-run `npm start` to rebuild the icon font and React components
 
 ## Custom application icons
 
@@ -279,7 +358,7 @@ Use these instructions to build a webfont from custom icons for your application
 3. Reference both your SVG icon and the core icons:
 	
 	`src: ["./icons/*.svg", "./node_modules/@nice-digital/icons/src/*.svg"]`
-4. Override the `$nice-font-base-path` variable in your application's SASS to match where your font files are served from. The default path is */fonts/*.
+4. Override the `$nice-icons-base-path` variable in your application's SASS to match where your font files are served from. The default path is */fonts/*.
 
 > Note: Only reference the core icons you need when building a custom icon font. E.g. replace `"./icons/*.svg"` with `"./icons/logo.svg", "./icons/search.svg"` etc.
 
