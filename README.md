@@ -168,11 +168,18 @@ const something = (props) => {
 
 ```
 
+The React component icons have the following default props:
+
+- `className=icon` - the associated class has a height and width of 1em to match the surrounding text
+- `aria-hidden={true}` as they're designed to be a visual to textual labels. In the rare case you need icons on their own without text, then pass a prop of `aria-hidden={false}` and make sure there's an associated aria label, title etc.
+
+The svg path also has a default `fill=currentColor` to match surrounding text colour, but this can also be overridden by the `colour` prop, or via CSS.
+
 Note: these React files in the lib folder use ES6 features like arrow functions, spread operators and ES6 modules. This means you'll need to transpile these with babel (or similar) as part of your build. For example, by using the [include option](https://webpack.js.org/configuration/module/#condition) pointing to *node_modules/@nice-digital/icons* with babel-loader in webpack.
 
 #### Browser support
 
-This method is subject to the same browser support as inline SVGs.
+This method is subject to the same [browser support as inline SVGs](https://caniuse.com/#feat=svg-html5) - essentially IE9+. To support IE8, you'd need to roll your own fallback - that's currently beyond the scope of this package.
 
 ### Webfont
 

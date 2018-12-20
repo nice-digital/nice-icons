@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run webfont && npm run svgr",
-    "svgr": "svgr --no-dimensions -d lib src --replace-attr-values #000=currentColor --svg-props className=icon --svg-props aria-hidden=true",
+    "svgr": "svgr -d lib src --icon --replace-attr-values #000=\"{props.colour || 'currentColor'}\" --svg-props className=icon --svg-props aria-hidden={true}",
     "webfont": "grunt dist --color",
     "test": "echo \"No tests :)\" && exit 0",
     "readme": "doctoc ./README.md && babel-node ./scripts/readme-replacer.js",
