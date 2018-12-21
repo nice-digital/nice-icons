@@ -17,7 +17,7 @@
     "release:minor": "np minor",
     "release:patch": "np patch",
     "// Lifecycle hooks": "",
-    "version": "npm run webfont && npm run readme"
+    "prepublishOnly": "npm start && npm run readme"
   },
   "repository": {
     "type": "git",
