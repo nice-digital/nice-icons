@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run webfont && npm run svgr",
-    "svgr": "svgr -d lib src --icon --replace-attr-values #000=\"{props.colour || 'currentColor'}\" --svg-props className=icon --svg-props aria-hidden={true}",
+    "svgr": "svgr -d es6 src && npm run es5ify",
+    "es5ify": "babel es6 -d lib",
     "webfont": "grunt dist --color",
     "test": "echo \"No tests :)\" && exit 0",
     "readme": "doctoc ./README.md && babel-node ./scripts/readme-replacer.js",
@@ -41,19 +42,23 @@
   "homepage": "https://github.com/nhsevidence/nice-icons#readme",
   "files": [
     "dist",
-    "src",
-    "scss"
+    "es6",
+    "lib",
+    "scss",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@nice-digital/eslint-config": "^1.0.3",
     "@svgr/cli": "^4.1.0",
-    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "^6.23.0",
     "doctoc": "^1.4.0",
     "eslint": "^5.10.0",
     "eslint-plugin-flowtype": "^3.2.0",
