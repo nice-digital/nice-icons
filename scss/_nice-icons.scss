@@ -113,7 +113,7 @@ $nice-icons: (
 /// Base styles required for an icon including font family etc
 /// @example
 ///   .test {
-///     @include nice-icon-base;
+///     @include nice-icons-base;
 ///
 ///     &:before {
 ///       content: nice-icon(search);
@@ -191,7 +191,7 @@ $nice-icons: (
     font-style: normal;
     font-weight: normal;
     src: url($nice-font-base-path + "nice-icons.eot?" + $nice-icons-no-cache);
-    src: url($nice-font-base-path + "nice-icons.eot?#iefix") format("embedded-opentype"),
+    src: url($nice-font-base-path + "nice-icons.eot?" + $nice-icons-no-cache + "#iefix") format("embedded-opentype"),
 		url($nice-font-base-path + "nice-icons.woff2?" + $nice-icons-no-cache) format("woff2"),
 		url($nice-font-base-path + "nice-icons.woff?" + $nice-icons-no-cache) format("woff"),
 		url($nice-font-base-path + "nice-icons.ttf?" + $nice-icons-no-cache) format("truetype"),
