@@ -151,14 +151,7 @@ There are 2 main ways to use NICE Icons in your project:
 
 There are React component versions of each icon within the *lib* folder. This allows you to easily include inline SVGs when rendering via React. Each icon file is named with PascalCase, for example *src/email-closed.svg* is available in React as *lib/EmailClosed.js*.
 
-To use, first import the SASS file into your project [as above](#installation) and configure NICE Icons to use SVGs:
-
-```scss
-$nice-icons-use-svgs: true;
-@import 'nice-icons';
-```
-
-Then import and use React components from the lib folder, for example:
+To use, first import the SASS file into your project [as above](#installation). Then import and use React components from the lib folder, for example:
 
 ```js
 import Search from "@nice-digital/icons/lib/Search";
