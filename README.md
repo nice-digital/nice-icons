@@ -178,7 +178,7 @@ The React component icons have the following default props:
 
 The svg path also has a default `fill=currentColor` to match surrounding text colour, but this can also be overridden by the `colour` prop, or via CSS.
 
-Note: these React files in the lib folder use ES6 features like arrow functions, spread operators and ES6 modules. This means you'll need to transpile these with babel (or similar) as part of your build. For example, by using the [include option](https://webpack.js.org/configuration/module/#condition) pointing to *node_modules/@nice-digital/icons* with babel-loader in webpack.
+Note: these React files in the lib folder are ES5 compatible. However, we also include ES6 versions in the ES6 folder if you prefer. This means you'll need to transpile these with babel (or similar) as part of your build. For example, by using the [include option](https://webpack.js.org/configuration/module/#condition) pointing to *node_modules/@nice-digital/icons* with babel-loader in webpack.
 
 #### Browser support
 
