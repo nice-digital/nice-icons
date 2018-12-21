@@ -44,6 +44,7 @@
 	- [Creating icons](#creating-icons)
 	- [Custom application icons](#custom-application-icons)
 	- [Icons](#icons)
+	- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -427,3 +428,9 @@ Icon | Name | Unicode | HTML | SASS
 <img src="src/youtube-square.svg" alt="youtube-square" height="50"> | youtube-square | f166 | `<span class="icon icon--youtube-square" aria-hidden="true"></span>` | `@include nice-icon(youtube-square);` 
 
 <!-- END icons generated comment -->
+
+## License
+
+NICE Icons distributed under the [MIT license](LICENSE).
+
+We use some icons from the awesome [Font Awesome Free](https://fontawesome.com/free), which is licensed under the [CC BY 4.0 license](https://fontawesome.com/license/free).
