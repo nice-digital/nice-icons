@@ -340,6 +340,8 @@ Run `npm run release` from the command line to release the package in interactiv
 - `npm run release:minor`
 - `npm run release:patch`
 
+Alternatively use fine-grained options like `npm run release -- 2.0.0-beta.1 --tag=beta`
+
 This uses [np](https://www.npmjs.com/package/np) under the hood.
 
 > Note: Generate a [GitHub personal acccess token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) and set this as the environment variable GITHUB_TOKEN. E.g. `export GITHUB_TOKEN="abcde1234"`
