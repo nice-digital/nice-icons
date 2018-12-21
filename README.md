@@ -16,33 +16,34 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Intro](#intro)
-  - [Guidance](#guidance)
-- [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
-  - [What's new in v2.x?](#whats-new-in-v2x)
-- [Installation](#installation)
-  - [Include sass](#include-sass)
-    - [Environment variable](#environment-variable)
-    - [includePaths](#includepaths)
-    - [Tilde import](#tilde-import)
-- [Usage](#usage)
-  - [React](#react)
-    - [Browser support](#browser-support)
-  - [Webfont](#webfont)
-    - [Serving font files](#serving-font-files)
-      - [Express](#express)
-      - [Grunt copy](#grunt-copy)
-      - [Visual Studio Copy Task](#visual-studio-copy-task)
-    - [Markup](#markup)
-    - [SASS](#sass)
-- [Development](#development)
-  - [Dependencies](#dependencies)
-  - [Commands](#commands)
-  - [Updating the readme](#updating-the-readme)
-  - [Releasing](#releasing)
-- [Creating icons](#creating-icons)
-- [Custom application icons](#custom-application-icons)
-- [Icons](#icons)
+- [NICE Icons](#nice-icons)
+	- [Intro](#intro)
+		- [Guidance](#guidance)
+	- [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
+		- [What's new in v2.x?](#whats-new-in-v2x)
+	- [Installation](#installation)
+		- [Include sass](#include-sass)
+			- [Environment variable](#environment-variable)
+			- [includePaths](#includepaths)
+			- [Tilde import](#tilde-import)
+	- [Usage](#usage)
+		- [React](#react)
+			- [Browser support](#browser-support)
+		- [Webfont](#webfont)
+			- [Serving font files](#serving-font-files)
+				- [Express](#express)
+				- [Grunt copy](#grunt-copy)
+				- [Visual Studio Copy Task](#visual-studio-copy-task)
+			- [Markup](#markup)
+			- [SASS](#sass)
+	- [Development](#development)
+		- [Dependencies](#dependencies)
+		- [Commands](#commands)
+		- [Updating the readme](#updating-the-readme)
+		- [Releasing](#releasing)
+	- [Creating icons](#creating-icons)
+	- [Custom application icons](#custom-application-icons)
+	- [Icons](#icons)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -50,7 +51,7 @@
 
 ## Intro
 
-Nice-icons is a replacement for [NICE.Glyphs](http://nhsevidence.github.io/NICE.Bootstrap/Guide.Glyphs.html#charset). It is independent of Bootstrap and the Design System so can be used on its own.
+NICE Icons is a replacement for [NICE.Glyphs](http://nhsevidence.github.io/NICE.Bootstrap/Guide.Glyphs.html#charset). It is independent of Bootstrap and the Design System so can be used on its own.
 
 ### Guidance
 
@@ -63,20 +64,23 @@ Avoid unnecessary decoration - only use icons if there’s a real user need:
 
 ## Upgrading from 1.x to 2.x
 
-Breaking changes:
+The following are breaking changes from v1 to v2:
 
-- SASS file path - now /scss rather than dist/
-- $nice-icons-base-path is now $nice-icons-base-path
-- mixin `icon-base` is now `nice-icons-base`
-- There are no nested folders within src
-- Dropped `speak: none` CSS property
-- Dropped support for usage via Bower
+- the generated SASS file is at a new path - now at */scss* rather than *dist/* to be consistent with other packages
+- the SASS base path variable `$nice-icons-base-path` is now `$nice-icons-base-path`
+- the SASS mixin `icon-base` is now `nice-icons-base`
+- there are no nested folders within src
+- dropped `speak: none` CSS property
+- dropped support for usage via Bower.
 
 ### What's new in v2.x?
 
-As well as the breaking changes listed above, we have the following features:
+As well as the breaking changes listed above, we've made the following updates:
 
-- React
+- upgrade to Babel 7
+- upgrade other outdated packages
+- add Figma source file containing all the SVG icons
+- add React components, with ES5 transpiled version.
 
 ## Installation
 
