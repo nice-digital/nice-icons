@@ -10,6 +10,7 @@ module.exports = {
 	"twitter-square": 0xf081,
 	"youtube-play": 0xf16a,
 	"youtube-square": 0xf166,
+	check: 0xf00c,
 	// NICE.Glyphs codepoints for backwards compatability
 	// See http://nhsevidence.github.io/NICE.Bootstrap/Guide.Glyphs.html#charset
 	calendar: 0xe045,

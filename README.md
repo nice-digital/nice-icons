@@ -32,6 +32,7 @@
       - [Express](#express)
       - [Grunt copy](#grunt-copy)
       - [Visual Studio Copy Task](#visual-studio-copy-task)
+	  - [Webpack](#webpack)
     - [Markup](#markup)
     - [SASS](#sass)
 - [Development](#development)
@@ -236,6 +237,20 @@ module.exports = function(grunt) {
 
 Use a [Visual Studio Copy Task](https://docs.microsoft.com/en-gb/visualstudio/msbuild/copy-task) to copy the font files into your application. Or use a [post build event](https://stackoverflow.com/a/3719097/486434).
 
+
+##### Webpack
+
+Install [Copy Webpack Plugin](copy-webpack-plugin) into your application, then at the top of your webpack config file add the following:
+
+`const CopyWebpackPlugin = require('copy-webpack-plugin');`
+
+then in the plugins section add the following:
+
+`new CopyWebpackPlugin([{ from: "node_modules/@nice-digital/icons/dist/*", to: "fonts", ignore: ["*.html"], flatten: true }]),`
+
+note that the 'to' destination is relative to the output path, which for a .NET core app would probably have been configured for wwwroot.
+
+
 #### Markup
 
 Use custom icons in markup (rather than [SASS](#sass)) wherever possible:
@@ -332,7 +347,7 @@ Run `npm run release` from the command line to release the package in interactiv
 - `npm run release:minor`
 - `npm run release:patch`
 
-Alternatively use fine-grained options like `npm run release -- 2.0.0-beta.1 --tag=beta`
+Alternatively use fine-grained options like `npm run release -- 2.0.0-beta.1 --tag=beta --any-branch`
 
 This uses [np](https://www.npmjs.com/package/np) under the hood.
 
