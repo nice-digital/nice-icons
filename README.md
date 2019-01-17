@@ -15,35 +15,34 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [NICE Icons](#nice-icons)
-	- [Intro](#intro)
-		- [Guidance](#guidance)
-	- [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
-		- [What's new in v2.x?](#whats-new-in-v2x)
-	- [Installation](#installation)
-		- [Include sass](#include-sass)
-			- [Environment variable](#environment-variable)
-			- [includePaths](#includepaths)
-			- [Tilde import](#tilde-import)
-	- [Usage](#usage)
-		- [React](#react)
-			- [Browser support](#browser-support)
-		- [Webfont](#webfont)
-			- [Serving font files](#serving-font-files)
-				- [Express](#express)
-				- [Grunt copy](#grunt-copy)
-				- [Visual Studio Copy Task](#visual-studio-copy-task)
-			- [Markup](#markup)
-			- [SASS](#sass)
-	- [Development](#development)
-		- [Dependencies](#dependencies)
-		- [Commands](#commands)
-		- [Updating the readme](#updating-the-readme)
-		- [Releasing](#releasing)
-	- [Creating icons](#creating-icons)
-	- [Custom application icons](#custom-application-icons)
-	- [Icons](#icons)
-	- [License](#license)
+- [Intro](#intro)
+  - [Guidance](#guidance)
+- [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
+  - [What's new in v2.x?](#whats-new-in-v2x)
+- [Installation](#installation)
+  - [Include sass](#include-sass)
+    - [Environment variable](#environment-variable)
+    - [includePaths](#includepaths)
+    - [Tilde import](#tilde-import)
+- [Usage](#usage)
+  - [React](#react)
+    - [Browser support](#browser-support)
+  - [Webfont](#webfont)
+    - [Serving font files](#serving-font-files)
+      - [Express](#express)
+      - [Grunt copy](#grunt-copy)
+      - [Visual Studio Copy Task](#visual-studio-copy-task)
+    - [Markup](#markup)
+    - [SASS](#sass)
+- [Development](#development)
+  - [Dependencies](#dependencies)
+  - [Commands](#commands)
+  - [Updating the readme](#updating-the-readme)
+  - [Releasing](#releasing)
+- [Creating icons](#creating-icons)
+- [Custom application icons](#custom-application-icons)
+- [Icons](#icons)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -343,16 +342,26 @@ This uses [np](https://www.npmjs.com/package/np) under the hood.
 
 We provide a [Figma file](NICE Icons.fig) with the source of all icons. Upload this into Figma and add a new Page for each icon.
 
-Follow the following steps to create a new SVG:
+Follow the following steps to create a new SVG in Figma:
 
-1. 512px height SVG
-2. Single compound path
-3. Viewbox from 0,0
+1.  Add page with the correct name eg "Address book"
+2.  If you have an existing SVG, drag it into the page pane. If creating a custom SVG, ensure you have a single compound path vector.
+3.  Set X and Y to 0 and 0
+4.  Add a 32px layout grid to the frame
+5.  Rename the frame (with the hash symbol) to "Address book frame" and the vector within it to "Address book vector"
+6.  On the vector, change the constraints to Centre and Centre.
+7.  On the frame change the width and height to 512px.
+8.  On the vector, SHIFT+Click the corner resize tool and give it 1 square padding
+9.  Centre the vector using the icons at the top of the design tool panel or use ALT+V and ALT+H when the vector is inside the frame.
+10. On the Address book page, add an export setting with type of SVG, then export the SVG changing the filename to kebab case eg "address-book.svg" and save in the src folder.
+	(Alternatively, right-click the frame and Copy As SVG)
+11. Ensure the SVG file has the XML declaration at the top, the same as all the other SVG files in the repository.
+12. In Figma menu, File > Save as .fig and save a new copy of NICE Icons.fig, in the root of the repository.
 
-Then, if you're creating a core icon:
+Afterwards,
 
-1. Save into the [src](src) folder
-2. Re-run `npm start` to rebuild the icon font and React components
+1. Re-run `npm start` to rebuild the icon font and React components
+2. Re-run `npm run readme` to rebuild the icons in this readme file.
 
 ## Custom application icons
 
@@ -379,6 +388,7 @@ Icon | Name | Unicode | HTML | SASS
 <img src="src/android.svg" alt="android" height="50"> | android | f17b | `<span class="icon icon--android" aria-hidden="true"></span>` | `@include nice-icon(android);` 
 <img src="src/apple.svg" alt="apple" height="50"> | apple | f179 | `<span class="icon icon--apple" aria-hidden="true"></span>` | `@include nice-icon(apple);` 
 <img src="src/calendar.svg" alt="calendar" height="50"> | calendar | e045 | `<span class="icon icon--calendar" aria-hidden="true"></span>` | `@include nice-icon(calendar);` 
+<img src="src/check.svg" alt="check" height="50"> | check | f102 | `<span class="icon icon--check" aria-hidden="true"></span>` | `@include nice-icon(check);` 
 <img src="src/chevron-down.svg" alt="chevron-down" height="50"> | chevron-down | e03c | `<span class="icon icon--chevron-down" aria-hidden="true"></span>` | `@include nice-icon(chevron-down);` 
 <img src="src/chevron-left.svg" alt="chevron-left" height="50"> | chevron-left | e03b | `<span class="icon icon--chevron-left" aria-hidden="true"></span>` | `@include nice-icon(chevron-left);` 
 <img src="src/chevron-right.svg" alt="chevron-right" height="50"> | chevron-right | e03a | `<span class="icon icon--chevron-right" aria-hidden="true"></span>` | `@include nice-icon(chevron-right);` 
