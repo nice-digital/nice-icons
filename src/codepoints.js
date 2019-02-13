@@ -28,6 +28,7 @@ module.exports = {
 	linkedin: 0xf0e1,
 	logo: 0xe01a,
 	"logo-name": 0xe01b,
+	"logo-full": 0xe01c,
 	minus: 0xe02a,
 	pathways: 0xe005,
 	play: 0xe028,
