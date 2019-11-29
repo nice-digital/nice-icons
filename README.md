@@ -30,7 +30,7 @@
 - [Development](#development)
   - [Dependencies](#dependencies)
   - [Commands](#commands)
-  - [Updating ToC](#updating-toc)
+  - [Updating the readme](#updating-the-readme)
   - [Releasing](#releasing)
 - [Creating icons](#creating-icons)
 - [Custom application icons](#custom-application-icons)
@@ -72,11 +72,11 @@ However, follow the steps below if you need to use NICE Icons manually:
 
 ### Installation
 
-Install [NICE Icons from Yarn](https://yarnpkg.com/en/package/@nice-digital/icons):
+Install [NICE Icons from npm](https://www.npmjs.com/package/@nice-digital/icons):
 
-`yarn add @nice-digital/icons`
+`npm i @nice-digital/icons --save`
 
-> Note: if you prefer to use the [package from npm](https://www.npmjs.com/package/@nice-digital/icons) rather than yarn, run `npm i @nice-digital/icons` instead.
+> Note: if you prefer to use the [package from Yarn](https://yarnpkg.com/en/package/@nice-digital/icons) rather than yarn, run `yarn add @nice-digital/icons` instead.
 
 Source SVG files and dist files will then be available in *./node_modules/@nice-digital/icons*.
 
@@ -205,19 +205,19 @@ There are SASS constructs for advanced usage:
 ### Dependencies
 
 	TL;DR:
-		1. `yarn`
+		1. `npm i`
 		2. `npm start`
 
 To build the icon font on your local machine, first install:
 
 - [Node 6+](https://nodejs.org/en/download/)
-- [Yarn](https://yarnpkg.com/en/docs/install)
+- [npm 5+](https://www.npmjs.com/)
 
 Then before you can run any tasks, run the following from the command line to install dependencies:
 
-- `yarn`
+- `npm i`
 
-> Note: if you prefer to use npm rather than yarn, run `npm i` instead.
+> Note: if you prefer to use npm rather than yarn, run `yarn` instead.
 
 We use Grunt as a task runner hence the dependency on Node. If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide first.
 
@@ -235,17 +235,25 @@ Run `npm start` from the command line for development. This uses [grunt-webfont]
 - build a [JSON file](dist/nice-icons.json) of metadata for the font
 - create a [demo html](dist/demo.html) - use this for testing new icons.
 
-### Updating ToC
+### Updating the readme
 
 Run the following command to update the readme:
 
 ```sh
-npx doctoc ./readme.md
+npm run readme
 ```
+
+This will generate the table of icons from the readme and to update the ToC.
 
 ### Releasing
 
-Run `npm run release` from the command line to release a new patch version.  Run `npm run release:minor` to release a new minor version. This uses [grunt-release-it](.grunt-tasks/release-it.js) under the hood.
+Run `npm run release` from the command line to release the package in interactive mode. Or run one of:
+
+- `npm run release:major`
+- `npm run release:minor`
+- `npm run release:patch`
+
+This uses [np](https://www.npmjs.com/package/np) under the hood.
 
 > Note: Generate a [GitHub personal acccess token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) and set this as the environment variable GITHUB_TOKEN. E.g. `export GITHUB_TOKEN="abcde1234"`
 
@@ -305,16 +313,20 @@ Icon | Name | Unicode | HTML | SASS
 <img src="src/logo.svg" alt="logo" height="50"> | logo | e01a | `<span class="icon icon--logo" aria-hidden="true"></span>` | `@include nice-icon(logo);` 
 <img src="src/minus.svg" alt="minus" height="50"> | minus | e02a | `<span class="icon icon--minus" aria-hidden="true"></span>` | `@include nice-icon(minus);` 
 <img src="src/pathways.svg" alt="pathways" height="50"> | pathways | e005 | `<span class="icon icon--pathways" aria-hidden="true"></span>` | `@include nice-icon(pathways);` 
+<img src="src/play.svg" alt="play" height="50"> | play | e028 | `<span class="icon icon--play" aria-hidden="true"></span>` | `@include nice-icon(play);` 
 <img src="src/plus.svg" alt="plus" height="50"> | plus | e027 | `<span class="icon icon--plus" aria-hidden="true"></span>` | `@include nice-icon(plus);` 
+<img src="src/podcast.svg" alt="podcast" height="50"> | podcast | e00b | `<span class="icon icon--podcast" aria-hidden="true"></span>` | `@include nice-icon(podcast);` 
 <img src="src/print.svg" alt="print" height="50"> | print | e001 | `<span class="icon icon--print" aria-hidden="true"></span>` | `@include nice-icon(print);` 
 <img src="src/fa/question-circle.svg" alt="question-circle" height="50"> | question-circle | f059 | `<span class="icon icon--question-circle" aria-hidden="true"></span>` | `@include nice-icon(question-circle);` 
 <img src="src/readnews.svg" alt="readnews" height="50"> | readnews | e009 | `<span class="icon icon--readnews" aria-hidden="true"></span>` | `@include nice-icon(readnews);` 
+<img src="src/remove.svg" alt="remove" height="50"> | remove | e024 | `<span class="icon icon--remove" aria-hidden="true"></span>` | `@include nice-icon(remove);` 
 <img src="src/search.svg" alt="search" height="50"> | search | e004 | `<span class="icon icon--search" aria-hidden="true"></span>` | `@include nice-icon(search);` 
 <img src="src/share.svg" alt="share" height="50"> | share | e008 | `<span class="icon icon--share" aria-hidden="true"></span>` | `@include nice-icon(share);` 
 <img src="src/sorting-asc.svg" alt="sorting-asc" height="50"> | sorting-asc | e022 | `<span class="icon icon--sorting-asc" aria-hidden="true"></span>` | `@include nice-icon(sorting-asc);` 
 <img src="src/sorting-desc.svg" alt="sorting-desc" height="50"> | sorting-desc | e023 | `<span class="icon icon--sorting-desc" aria-hidden="true"></span>` | `@include nice-icon(sorting-desc);` 
 <img src="src/sorting.svg" alt="sorting" height="50"> | sorting | e021 | `<span class="icon icon--sorting" aria-hidden="true"></span>` | `@include nice-icon(sorting);` 
 <img src="src/standards.svg" alt="standards" height="50"> | standards | e002 | `<span class="icon icon--standards" aria-hidden="true"></span>` | `@include nice-icon(standards);` 
+<img src="src/stop.svg" alt="stop" height="50"> | stop | e043 | `<span class="icon icon--stop" aria-hidden="true"></span>` | `@include nice-icon(stop);` 
 <img src="src/syndication.svg" alt="syndication" height="50"> | syndication | e013 | `<span class="icon icon--syndication" aria-hidden="true"></span>` | `@include nice-icon(syndication);` 
 <img src="src/trash.svg" alt="trash" height="50"> | trash | e020 | `<span class="icon icon--trash" aria-hidden="true"></span>` | `@include nice-icon(trash);` 
 <img src="src/fa/twitter-square.svg" alt="twitter-square" height="50"> | twitter-square | f081 | `<span class="icon icon--twitter-square" aria-hidden="true"></span>` | `@include nice-icon(twitter-square);` 
