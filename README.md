@@ -322,6 +322,9 @@ Icon | Name | Unicode | HTML | SASS
 <img src="src/remove.svg" alt="remove" height="50"> | remove | e024 | `<span class="icon icon--remove" aria-hidden="true"></span>` | `@include nice-icon(remove);` 
 <img src="src/search.svg" alt="search" height="50"> | search | e004 | `<span class="icon icon--search" aria-hidden="true"></span>` | `@include nice-icon(search);` 
 <img src="src/share.svg" alt="share" height="50"> | share | e008 | `<span class="icon icon--share" aria-hidden="true"></span>` | `@include nice-icon(share);` 
+<img src="src/sorting-asc.svg" alt="sorting-asc" height="50"> | sorting-asc | e022 | `<span class="icon icon--sorting-asc" aria-hidden="true"></span>` | `@include nice-icon(sorting-asc);` 
+<img src="src/sorting-desc.svg" alt="sorting-desc" height="50"> | sorting-desc | e023 | `<span class="icon icon--sorting-desc" aria-hidden="true"></span>` | `@include nice-icon(sorting-desc);` 
+<img src="src/sorting.svg" alt="sorting" height="50"> | sorting | e021 | `<span class="icon icon--sorting" aria-hidden="true"></span>` | `@include nice-icon(sorting);` 
 <img src="src/standards.svg" alt="standards" height="50"> | standards | e002 | `<span class="icon icon--standards" aria-hidden="true"></span>` | `@include nice-icon(standards);` 
 <img src="src/stop.svg" alt="stop" height="50"> | stop | e043 | `<span class="icon icon--stop" aria-hidden="true"></span>` | `@include nice-icon(stop);` 
 <img src="src/syndication.svg" alt="syndication" height="50"> | syndication | e013 | `<span class="icon icon--syndication" aria-hidden="true"></span>` | `@include nice-icon(syndication);` 

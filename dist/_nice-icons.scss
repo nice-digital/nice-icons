@@ -62,6 +62,9 @@ $nice-font-base-path: '/fonts/' !default;
 /// @prop {string} remove [e024] - <span class="icon icon--remove" aria-hidden="true"></span>
 /// @prop {string} search [e004] - <span class="icon icon--search" aria-hidden="true"></span>
 /// @prop {string} share [e008] - <span class="icon icon--share" aria-hidden="true"></span>
+/// @prop {string} sorting-asc [e022] - <span class="icon icon--sorting-asc" aria-hidden="true"></span>
+/// @prop {string} sorting-desc [e023] - <span class="icon icon--sorting-desc" aria-hidden="true"></span>
+/// @prop {string} sorting [e021] - <span class="icon icon--sorting" aria-hidden="true"></span>
 /// @prop {string} standards [e002] - <span class="icon icon--standards" aria-hidden="true"></span>
 /// @prop {string} stop [e043] - <span class="icon icon--stop" aria-hidden="true"></span>
 /// @prop {string} syndication [e013] - <span class="icon icon--syndication" aria-hidden="true"></span>
@@ -104,6 +107,9 @@ $nice-icons: (
   remove: 'e024',
   search: 'e004',
   share: 'e008',
+  sorting-asc: 'e022',
+  sorting-desc: 'e023',
+  sorting: 'e021',
   standards: 'e002',
   stop: 'e043',
   syndication: 'e013',
