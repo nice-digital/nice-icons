@@ -305,8 +305,8 @@ There are SASS constructs for advanced usage:
 
 To build the icon font on your local machine, first install:
 
-- [Node 10+](https://nodejs.org/en/download/)
-- [npm 6.8+](https://www.npmjs.com/)
+- [Node 12](https://nodejs.org/en/download/), or even better use [Volta](https://volta.sh) which will use the Node version pinned in package.json
+- [npm 6](https://www.npmjs.com/)
 
 Then before you can run any tasks, run the following from the command line to install dependencies:
 
