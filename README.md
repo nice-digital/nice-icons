@@ -15,36 +15,35 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [NICE Icons](#nice-icons)
-	- [Intro](#intro)
-		- [Guidance](#guidance)
-	- [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
-		- [What's new in v2.x?](#whats-new-in-v2x)
-	- [Installation](#installation)
-		- [Include sass](#include-sass)
-			- [Environment variable](#environment-variable)
-			- [includePaths](#includepaths)
-			- [Tilde import](#tilde-import)
-	- [Usage](#usage)
-		- [React](#react)
-			- [Browser support](#browser-support)
-		- [Webfont](#webfont)
-			- [Serving font files](#serving-font-files)
-				- [Express](#express)
-				- [Grunt copy](#grunt-copy)
-				- [Visual Studio Copy Task](#visual-studio-copy-task)
-				- [Webpack](#webpack)
-			- [Markup](#markup)
-			- [SASS](#sass)
-	- [Development](#development)
-		- [Dependencies](#dependencies)
-		- [Commands](#commands)
-		- [Updating the readme](#updating-the-readme)
-		- [Releasing](#releasing)
-	- [Creating icons](#creating-icons)
-	- [Custom application icons](#custom-application-icons)
-	- [Icons](#icons)
-	- [License](#license)
+- [Intro](#intro)
+  - [Guidance](#guidance)
+- [Upgrading from 1.x to 2.x](#upgrading-from-1x-to-2x)
+  - [What's new in v2.x?](#whats-new-in-v2x)
+- [Installation](#installation)
+  - [Include sass](#include-sass)
+    - [Environment variable](#environment-variable)
+    - [includePaths](#includepaths)
+    - [Tilde import](#tilde-import)
+- [Usage](#usage)
+  - [React](#react)
+    - [Browser support](#browser-support)
+  - [Webfont](#webfont)
+    - [Serving font files](#serving-font-files)
+      - [Express](#express)
+      - [Grunt copy](#grunt-copy)
+      - [Visual Studio Copy Task](#visual-studio-copy-task)
+      - [Webpack](#webpack)
+    - [Markup](#markup)
+    - [SASS](#sass)
+- [Development](#development)
+  - [Dependencies](#dependencies)
+  - [Commands](#commands)
+  - [Updating the readme](#updating-the-readme)
+  - [Releasing](#releasing)
+- [Creating icons](#creating-icons)
+- [Custom application icons](#custom-application-icons)
+- [Icons](#icons)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -448,6 +447,7 @@ Icon | Name | Unicode | HTML | SASS
 <img src="src/twitter.svg" alt="twitter" height="50"> | twitter | e000 | `<span class="icon icon--twitter" aria-hidden="true"></span>` | `@include nice-icon(twitter);` 
 <img src="src/user.svg" alt="user" height="50"> | user | e01f | `<span class="icon icon--user" aria-hidden="true"></span>` | `@include nice-icon(user);` 
 <img src="src/warning.svg" alt="warning" height="50"> | warning | e04b | `<span class="icon icon--warning" aria-hidden="true"></span>` | `@include nice-icon(warning);` 
+<img src="src/x-logo.svg" alt="x-logo" height="50"> | x-logo | f102 | `<span class="icon icon--x-logo" aria-hidden="true"></span>` | `@include nice-icon(x-logo);` 
 <img src="src/youtube-play.svg" alt="youtube-play" height="50"> | youtube-play | f16a | `<span class="icon icon--youtube-play" aria-hidden="true"></span>` | `@include nice-icon(youtube-play);` 
 <img src="src/youtube-square.svg" alt="youtube-square" height="50"> | youtube-square | f166 | `<span class="icon icon--youtube-square" aria-hidden="true"></span>` | `@include nice-icon(youtube-square);` 
 

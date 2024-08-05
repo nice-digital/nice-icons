@@ -49,5 +49,6 @@ module.exports = {
 	trash: 0xe020,
 	twitter: 0xe000,
 	user: 0xe01f,
-	warning: 0xe04b
+	warning: 0xe04b,
+	x: 0xf102
 };
