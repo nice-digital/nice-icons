@@ -50,5 +50,5 @@ module.exports = {
 	twitter: 0xe000,
 	user: 0xe01f,
 	warning: 0xe04b,
-	x: 0xf102
+	x: 0xf103
 };
